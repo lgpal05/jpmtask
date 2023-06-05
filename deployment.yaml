@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: your-fastapi-app
+spec:
+  selector:
+    matchLabels:
+      app: your-fastapi-app
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: your-fastapi-app
+    spec:
+      containers:
+      - name: your-fastapi-app
+        image: your-account-id.dkr.ecr.your-region.amazonaws.com/your-repository-name:latest
+        ports:
+        - containerPort: 80
