@@ -32,7 +32,7 @@ resource "aws_eks_cluster" "cluster" {
   name     = var.cluster_name
   version  = var.cluster_version
   role_arn = aws_iam_role.eks-cluster.arn
-  vpc_config.endpoint_public_access = false
+
 
   encryption_config {
     provider {
@@ -48,6 +48,7 @@ resource "aws_eks_cluster" "cluster" {
       aws_subnet.public-us-east-2a.id,
       aws_subnet.public-us-east-2b.id
     ]
+     endpoint_public_access = false
   }
 
   depends_on = [aws_iam_role_policy_attachment.amazon-eks-cluster-policy]
