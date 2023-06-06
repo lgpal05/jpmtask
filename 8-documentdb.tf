@@ -47,6 +47,8 @@ resource "aws_docdb_cluster" "docdb_cluster" {
   master_password         = jsondecode(data.aws_secretsmanager_secret_version.docdb_secret.secret_string)["password"]
   backup_retention_period = 5
   preferred_backup_window = "07:00-09:00"
+  enabled_cloudwatch_logs_exports = ["profiler", "audit"]
+  storage_encrypted = true
 }
 
 resource "aws_docdb_cluster_instance" "cluster_instances" {
