@@ -15,5 +15,18 @@ spec:
       containers:
       - name: your-fastapi-app
         image: your-account-id.dkr.ecr.your-region.amazonaws.com/your-repository-name:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
+        resources:
+          limits:
+            memory: "2048Gi"
+        securityContext:
+          runAsNonRoot: true
+          runAsUser: 10000
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop:
+            - ALL
+            add: ["NET_BIND_SERVICE"] # Add the necessary capabilities here
