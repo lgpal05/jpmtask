@@ -1,5 +1,14 @@
 # jpmtask
 
+1. terraform init
+2. terraform apply
+3. aws eks update-kubeconfig --name videodemo --region us-east-2
+4. kubectl get svc
+5. 
+
+
+
+
 
 
 **# Apply the configuration using the command --> kubectl apply -f deployment.yaml**
