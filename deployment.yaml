@@ -29,4 +29,4 @@ spec:
           capabilities:
             drop:
             - ALL
-            add: [""] # For now I don't see any addl. caps required, If required add in the array
+            add: ["NET_BIND_SERVICE"] # For now I don't see any addl. caps required, If required add in the array
