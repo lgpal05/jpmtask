@@ -29,13 +29,13 @@ resource "aws_apigatewayv2_integration" "eks" {
   connection_id      = aws_apigatewayv2_vpc_link.eks.id
 }
 
-resource "aws_apigatewayv2_route" "get_echo" {
+resource "aws_apigatewayv2_route" "get_movies" {
   api_id = aws_apigatewayv2_api.main.id
 
-  route_key = "GET /echo"
+  route_key = "GET /movies"
   target    = "integrations/${aws_apigatewayv2_integration.eks.id}"
 }
 
 output "hello_base_url" {
-  value = "${aws_apigatewayv2_stage.dev.invoke_url}/echo"
+  value = "${aws_apigatewayv2_stage.dev.invoke_url}/movies"
 }
