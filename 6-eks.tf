@@ -32,6 +32,7 @@ resource "aws_eks_cluster" "cluster" {
   name     = var.cluster_name
   version  = var.cluster_version
   role_arn = aws_iam_role.eks-cluster.arn
+  vpc_config.endpoint_public_access = false
 
   encryption_config {
     provider {
